@@ -9,4 +9,4 @@ const productSchema = new Schema ({
     timestamps: true //*Added the propertie to know creation and updated */
 });
 
-module.exports = model('Product', productSchema);
+module.exports = model('product', productSchema);

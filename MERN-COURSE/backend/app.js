@@ -3,43 +3,28 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Product = require('./models/Products');
+const productRoute = require('./routes/products.routes');
+const usersRoute = require('./routes/users.routes');
+const ordersRoute = require('./routes/orders.routes');
+const categoryRoute = require('./routes/categories.routes');
+const cors = require('cors');
+
+require('dotenv/config');
+const { API_URL, PORT, MONGODB } = process.env;
+
+app.use(cors());
+app.options('*', cors());
 
 /* MIDDLEWARE */
 app.use(bodyParser.json());
 // We will use this to display the log request in specific format.
 app.use(morgan('tiny'));
 
-
-require('dotenv/config');
-
-const { API_URL, PORT, MONGODB } = process.env;
-
-app.get(`${API_URL}/products`, async (req, res) => {
-    const productList = await Product.find();
-    if(!productList){
-        res.status(500).json({ success: false });
-    }
-    res.send(productList);
-});
-
-app.post(`${API_URL}/products`, (req, res) => {
-    const product = new Product({
-        name: req.body.name,
-        image: req.body.image,
-        countInStock: req.body.countInStock
-    });
-    product.save()
-        .then((createdProduct => {
-            res.status(201).json(createdProduct);
-        }))
-        .catch((err) => {
-            res.status(500).json({
-                error: err,
-                success: false
-            });
-        });
-});
+/* ROUTES */
+app.use(`${API_URL}/products`, productRoute);
+app.use(`${API_URL}/categories`, categoryRoute);
+app.use(`${API_URL}/orders`, ordersRoute);
+app.use(`${API_URL}/users`, usersRoute);
 
 mongoose.connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'e-shop-database' } )
     .then(() => {
