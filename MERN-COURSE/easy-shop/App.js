@@ -3,13 +3,15 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 // Screens.
+import Header from './Shared/Header';
 import ProductContainer from './Screens/Products/ProductsContainer';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Header />
       <ProductContainer />
-      <StatusBar style="auto" />
+      <StatusBar style = "auto" />
     </View>
   );
 }

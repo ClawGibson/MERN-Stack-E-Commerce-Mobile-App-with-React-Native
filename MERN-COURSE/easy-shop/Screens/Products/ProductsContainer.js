@@ -19,7 +19,7 @@ const ProductContainer = () => {
     }, []);
 
     return (
-        <View>
+        <View style = {styles.bar}>
             <Text>Product Container</Text>
             <View style = {{marginTop: 100}}>
                 <FlatList
@@ -34,5 +34,12 @@ const ProductContainer = () => {
         </View>
     )
 };
+
+const styles = StyleSheet.create({
+    bar: {
+        marginTop: 50,
+        backgroundColor: '#969696'
+    }
+});
 
 export default ProductContainer;
