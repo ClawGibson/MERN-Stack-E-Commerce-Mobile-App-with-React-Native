@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 const imageBase = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.flaticon.com%2Ficons%2Fpng%2F512%2F166%2F166913.png&f=1&nofb=1';
-let { width, height } = Dimensions.get('window');
+let { width, height } = Dimensions.get('screen');
 //console.log('2: ' + width + '\nH: ' + height);
 
 const ProductCard = (props) => {
