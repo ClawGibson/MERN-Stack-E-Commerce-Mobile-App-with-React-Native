@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, LogBox } from 'react-native';
+
+LogBox.ignoreAllLogs(true);
 
 // Screens.
 import Header from './Shared/Header';

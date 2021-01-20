@@ -32,7 +32,7 @@ const SearchedProduct = (props) => {
             ) : (
                 <View style={StyleSheet.center}>
                     <Text style={{alignSelf: 'center'}}>
-                        No se encontró :c
+                        No se encontró :C
                     </Text>
                 </View>
             )}
