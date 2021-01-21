@@ -26,7 +26,7 @@ const Banner = () => {
         <ScrollView>
             <View style={styles.container}>
                 <View style={styles.swiper}>
-                    <Swiper style = {{height: width/2}} showsButtons = {false} autoplay = {true} autoplayTimeout = {2}>
+                    <Swiper style = {{height: width/3}} showsButtons = {false} autoplay = {true} autoplayTimeout = {2}>
                         {bannerData.map((item) => {
                             return (
                                 <Image 
