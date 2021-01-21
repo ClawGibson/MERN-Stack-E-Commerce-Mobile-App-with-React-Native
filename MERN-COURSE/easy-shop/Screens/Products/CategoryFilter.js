@@ -17,7 +17,7 @@ const CategoryFilter = (props) => {
                     </Badge>
                 </TouchableOpacity>
                 {
-                    props.categories.map((item) => {
+                    props.categories.map((item) => (
                         <TouchableOpacity key={item._id} onPress= {() => {
                             props.categoryFilter(item._id), props.setActive(props.categories.indexOf(item))
                         }} >
@@ -27,7 +27,7 @@ const CategoryFilter = (props) => {
                                 </Text>
                             </Badge>
                         </TouchableOpacity>
-                    })
+                    ))
                 }
             </ListItem>
         </ScrollView>
